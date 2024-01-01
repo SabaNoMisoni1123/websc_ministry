@@ -3,6 +3,8 @@ import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+import src.wslib as wslib
+
 app = FastAPI()
 
 origins = [
@@ -23,8 +25,6 @@ app.add_middleware(
 url_dict = []
 with open("./data/urlList.json") as f:
     url_dict = json.load(f)
-    print(url_dict)
-    print(list(url_dict.keys()))
 
 
 @app.get("/")
@@ -40,3 +40,8 @@ async def get_help():
 @app.get("/list")
 async def get_list():
     return {"message": url_dict}
+
+
+@app.get("/test")
+async def get_test():
+    return wslib.test()
