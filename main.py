@@ -52,12 +52,10 @@ async def get_data(id: str = ""):
             "msg": "Invalid ID",
             "id": id,
             "url": "",
-            "data": [],
         }
     else:
         return {
             "msg": "SUCCESS",
             "id": id,
             "url": url_dict[id]["url"],
-            "data": ws_machine.get(url_dict[id]),
         }
