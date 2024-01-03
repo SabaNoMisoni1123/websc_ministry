@@ -1,11 +1,14 @@
 import json
+import sys
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import src.wslib as wslib
+sys.path.append("src")
+import wslib as wslib
 
 app = FastAPI()
+ws_machine = wslib.MinistrySiteDataGetter()
 
 origins = [
     "http://localhost.tiangolo.com",
@@ -22,7 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-url_dict = []
+url_dict = dict()
 with open("./data/urlList.json") as f:
     url_dict = json.load(f)
 
@@ -42,6 +45,19 @@ async def get_list():
     return {"message": url_dict}
 
 
-@app.get("/test")
-async def get_test():
-    return wslib.test()
+@app.get("/data")
+async def get_data(id: str = ""):
+    if id not in url_dict.key():
+        return {
+            "msg": "Invalid ID",
+            "id": id,
+            "url": "",
+            "data": [],
+        }
+    else:
+        return {
+            "msg": "SUCCESS",
+            "id": id,
+            "url": url_dict[id]["url"],
+            "data": ws_machine.get(url_dict[id]),
+        }

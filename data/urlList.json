@@ -1,14 +1,44 @@
 {
   "micRSS": {
     "name": "総務省RSS",
-    "url": "https://www.soumu.go.jp/news.rdf"
+    "url": "https://www.soumu.go.jp/news.rdf",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated"
+      }
+    }
   },
   "micJOHO": {
     "name": "総務省情報通信審議会",
-    "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/policyreports/joho_tsusin/kaigi_back.html"
+    "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/policyreports/joho_tsusin/kaigi_back.html",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": false,
+      "dateFormat": "%Y年%m月%d日",
+      "dateFormat": "shift-jis",
+      "dataListPath": "dl.idxLst",
+      "baseURL": "https://www.soumu.go.jp",
+      "path": {
+        "url": "dd",
+        "title": "dd",
+        "date": "dt"
+      }
+    }
   },
   "micNEWS": {
     "name": "総務省報道発表",
-    "url": "https://www.soumu.go.jp/menu_news/s-news/index.html"
+    "url": "https://www.soumu.go.jp/menu_news/s-news/index.html",
+    "useDefaultFunc": false,
+    "funcID": "micNEWS",
+    "arg": {
+      "dateFormat": "%Y年%m月%d日",
+      "baseURL": "https://www.soumu.go.jp"
+    }
   }
 }

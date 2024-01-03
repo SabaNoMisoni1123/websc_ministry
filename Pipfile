@@ -8,6 +8,8 @@ fastapi = "*"
 uvicorn = "*"
 requests = "*"
 beautifulsoup4 = "*"
+feedparser = "*"
+python-dateutil = "*"
 
 [dev-packages]
 python-lsp-server = {extras = ["all"], version = "*"}
