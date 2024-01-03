@@ -53,7 +53,7 @@ async def get_data(id: str = "noID"):
             "id": "No ID Selected",
             "url": "",
         }
-    elif id not in url_dict.key():
+    elif id not in url_dict.keys():
         return {
             "msg": "Invalid ID",
             "id": id,
@@ -64,4 +64,5 @@ async def get_data(id: str = "noID"):
             "msg": "SUCCESS",
             "id": id,
             "url": url_dict[id]["url"],
+            "data": ws_machine.get(url_dict[id]),
         }
