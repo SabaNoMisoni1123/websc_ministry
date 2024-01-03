@@ -25,9 +25,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-url_dict = dict()
+site_dict = dict()
 with open("./data/urlList.json") as f:
-    url_dict = json.load(f)
+    site_dict = json.load(f)
 
 
 @app.get("/")
@@ -40,9 +40,18 @@ async def get_help():
     return {"message": "Help"}
 
 
-@app.get("/list")
-async def get_list():
-    return {"message": url_dict}
+@app.get("/siteList")
+async def get_site_list(detail: bool = None):
+    if detail is True:
+        return {"msg": "Site List (detail)", "data": site_dict}
+    else:
+        ret_dict = dict()
+        for k in site_dict.keys():
+            ret_dict[k] = {
+                "name": site_dict[k]["name"],
+                "url": site_dict[k]["url"],
+            }
+        return {"msg": "Site List", "data": ret_dict}
 
 
 @app.get("/data/")
@@ -53,7 +62,7 @@ async def get_data(id: str = "noID"):
             "id": "No ID Selected",
             "url": "",
         }
-    elif id not in url_dict.keys():
+    elif id not in site_dict.keys():
         return {
             "msg": "Invalid ID",
             "id": id,
@@ -63,6 +72,6 @@ async def get_data(id: str = "noID"):
         return {
             "msg": "SUCCESS",
             "id": id,
-            "url": url_dict[id]["url"],
-            "data": ws_machine.get(url_dict[id]),
+            "url": site_dict[id]["url"],
+            "data": ws_machine.get(site_dict[id]),
         }
