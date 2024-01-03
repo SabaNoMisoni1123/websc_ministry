@@ -21,7 +21,7 @@
     "arg": {
       "rss": false,
       "dateFormat": "%Y年%m月%d日",
-      "dateFormat": "shift-jis",
+      "encoding": "shift-jis",
       "dataListPath": "dl.idxLst",
       "baseURL": "https://www.soumu.go.jp",
       "path": {
