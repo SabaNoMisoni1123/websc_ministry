@@ -45,9 +45,15 @@ async def get_list():
     return {"message": url_dict}
 
 
-@app.get("/data")
-async def get_data(id: str = ""):
-    if id not in url_dict.key():
+@app.get("/data/")
+async def get_data(id: str = "noID"):
+    if id == "noID":
+        return {
+            "msg": "Need ID",
+            "id": "No ID Selected",
+            "url": "",
+        }
+    elif id not in url_dict.key():
         return {
             "msg": "Invalid ID",
             "id": id,
