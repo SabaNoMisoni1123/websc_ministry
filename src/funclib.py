@@ -87,7 +87,7 @@ def get_digital_news(url, arg_dict):
                             arg_dict["dateFormat"],
                         ).timestamp()
                     ),
-                    "org": "デジ庁新着情報",
+                    "org": "デジタル庁",
                 }
             )
 

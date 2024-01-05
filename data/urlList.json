@@ -120,8 +120,7 @@
       "path": {
         "url": "link",
         "title": "title",
-        "date": "updated",
-        "org": "author"
+        "date": "updated"
       }
     }
   },
@@ -136,7 +135,7 @@
       "path": {
         "url": "link",
         "title": "title",
-        "date": "updated",
+        "date": "updated"
       }
     }
   },
