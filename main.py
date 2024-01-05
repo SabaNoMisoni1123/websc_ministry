@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 sys.path.append("src")
-import wslib as wslib
+import wslib
 
 app = FastAPI()
 ws_machine = wslib.MinistrySiteDataGetter()

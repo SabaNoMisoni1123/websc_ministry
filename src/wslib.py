@@ -10,7 +10,11 @@ import funclib
 class MinistrySiteDataGetter:
     def __init__(self):
         # 個別に実装した関数の登録
-        self.func_dict = {"micNEWS": funclib.get_mic_news}
+        self.func_dict = {
+            "micNews": funclib.get_mic_news,
+            "digitalNews": funclib.get_digital_news,
+            "mlitNews": funclib.get_mlit_news,
+        }
 
     def get(self, config: dict):
         self.name = config["name"]

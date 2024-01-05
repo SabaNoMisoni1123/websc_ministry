@@ -1,5 +1,5 @@
 {
-  "micJOHO": {
+  "micJoho": {
     "name": "総務省情報通信審議会",
     "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/policyreports/joho_tsusin/kaigi_back.html",
     "useDefaultFunc": true,
@@ -16,11 +16,11 @@
       }
     }
   },
-  "micNEWS": {
+  "micNews": {
     "name": "総務省報道発表",
     "url": "https://www.soumu.go.jp/menu_news/s-news/index.html",
     "useDefaultFunc": false,
-    "funcID": "micNEWS",
+    "funcID": "micNews",
     "arg": {
       "dateFormat": "%Y年%m月%d日",
       "baseURL": "https://www.soumu.go.jp"
@@ -37,7 +37,123 @@
       "path": {
         "url": "link",
         "title": "title",
-        "date": "updated"
+        "date": "updated",
+        "org": "author"
+      }
+    }
+  },
+  "digitalConf": {
+    "name": "デジ庁会議等",
+    "url": "https://www.digital.go.jp/news?category=146&",
+    "useDefaultFunc": false,
+    "funcID": "digitalNews",
+    "arg": {
+      "rss": false,
+      "nPage": 3,
+      "dateFormat": "%Y-%m-%d",
+      "baseURL": "https://www.digital.go.jp",
+      "dataListPath": "section.card",
+      "notWatchCategory": [
+        "申請・届出",
+        "採用"
+      ]
+    }
+  },
+  "digitalNews": {
+    "name": "デジ庁報道発表",
+    "url": "https://www.digital.go.jp/news?",
+    "useDefaultFunc": false,
+    "funcID": "digitalNews",
+    "arg": {
+      "rss": false,
+      "nPage": 3,
+      "dateFormat": "%Y-%m-%d",
+      "baseURL": "https://www.digital.go.jp",
+      "dataListPath": "section.card",
+      "notWatchCategory": [
+        "申請・届出",
+        "採用",
+        "会議等"
+      ]
+    }
+  },
+  "mlitNewsRSS": {
+    "name": "国交省RSS",
+    "url": "https://www.mlit.go.jp/index.rdf",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated",
+        "org": "author"
+      }
+    }
+  },
+  "mlitPressRSS": {
+    "name": "国交省報道発表RSS",
+    "url": "https://www.mlit.go.jp/pressrelease.rdf",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated",
+        "org": "author"
+      }
+    }
+  },
+  "metiNewsRSS": {
+    "name": "経産省報道発表RSS",
+    "url": "https://www.meti.go.jp/ml_index_release_atom.xml",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated",
+        "org": "author"
+      }
+    }
+  },
+  "metiStatRSS": {
+    "name": "経産省統計情報RSS",
+    "url": "https://www.meti.go.jp/statistics/st_news.xml",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated",
+        "org": "author"
+      }
+    }
+  },
+  "caoPressRSS": {
+    "name": "内閣府報道発表RSS",
+    "url": "https://www.cao.go.jp/rss/news.rdf",
+    "useDefaultFunc": true,
+    "arg": {
+      "rss": true,
+      "dateFormat": "%Y-%m-%dT%X%z",
+      "dataListPath": "entries",
+      "path": {
+        "url": "link",
+        "title": "title",
+        "date": "updated",
+        "org": "author"
       }
     }
   }
