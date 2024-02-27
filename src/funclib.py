@@ -79,7 +79,11 @@ def get_digital_news(url, arg_dict):
 
             ret_list.append(
                 {
-                    "url": arg_dict["baseURL"] + card.select_one("a").get("href"),
+                    "url": (
+                        arg_dict["baseURL"] + card.select_one("a").get("href")
+                        if card.select_one("a").get("href")[0] == "/"
+                        else card.select_one("a").get("href")
+                    ),
                     "title": f"（{category}） {card.select_one('.card__title > span').get_text()}",
                     "epoch": int(
                         dt.datetime.strptime(
